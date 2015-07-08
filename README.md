@@ -1,6 +1,6 @@
 # sniphpets-symfony
 
-This repository contains [Symfony](http://symfony.com) snippets for Vim. This snippets were inspired by [ultisnips-php](https://github.com/algotech/ultisnips-php)
+This repository contains [Symfony](http://symfony.com) snippets for the Vim. This snippets were inspired by [ultisnips-php](https://github.com/algotech/ultisnips-php)
 
 ## Installation
 
