@@ -2,7 +2,7 @@ if exists('g:sniphpets_symfony_autoload')
     finish
 endif
 
-let g:sniphpets_synfony_autoload = 1
+let g:sniphpets_symfony_autoload = 1
 
 fun! sniphpets#symfony#resolve_bundle_namespace(...)
     let fqn = a:0 > 0 ? a:1 : sniphpets#resolve_fqn()
