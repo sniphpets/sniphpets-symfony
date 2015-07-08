@@ -1,10 +1,10 @@
 # sniphpets-symfony
 
-This repository contains [Symfony](http://symfony.com) snippets for the Vim. This snippets were inspired by [ultisnips-php](https://github.com/algotech/ultisnips-php)
+This repository contains [Symfony](http://symfony.com) snippets for the Vim. This snippets were inspired by [ultisnips-php](https://github.com/algotech/ultisnips-php).
 
 ## Installation
 
-This plugin requires [Ultisnips](https://github.com/SirVer/ultisnips) and [sniphpets](https://github.com/sniphpets/sniphpets)
+This plugin requires [Ultisnips](https://github.com/SirVer/ultisnips) and [sniphpets](https://github.com/sniphpets/sniphpets).
 
 ### Using [pathogen](https://github.com/tpope/vim-pathogen)
 
