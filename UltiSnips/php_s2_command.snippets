@@ -1,0 +1,65 @@
+priority -40
+
+snippet sfcommandca "Symfony2 / Command / Command class (container aware)" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class `!v sniphpets#basename()` extends ContainerAwareCommand
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	protected function configure()
+	{
+		\$this
+			->setName('${1:default:command}')
+			->setDescription('${2:Default description}')
+			;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	protected function execute(InputInterface \$input, OutputInterface \$output)
+	{
+		${0}
+	}
+}
+endsnippet
+
+snippet sfcommand "Symfony2 / Command / Command class" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class `!v sniphpets#basename()` extends Command
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	protected function configure()
+	{
+		\$this
+			->setName('${1:default:command}')
+			->setDescription('${2:Default description}')
+			;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	protected function execute(InputInterface \$input, OutputInterface \$output)
+	{
+		${0}
+	}
+}
+endsnippet

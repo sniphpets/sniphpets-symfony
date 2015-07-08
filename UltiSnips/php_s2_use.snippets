@@ -1,0 +1,42 @@
+priority -40
+
+snippet sfuserequest "Symfony2 / Use / Request" b
+use Symfony\Component\HttpFoundation\Request;
+endsnippet
+
+snippet sfuseresponse "Symfony2 / Use / Response" b
+use Symfony\Component\HttpFoundation\\${1:Json}Response;
+endsnippet
+
+snippet sfusecollection "Symfony2 / Use / Doctrine collection" b
+use Doctrine\Common\Collections\\${1:Array}Collection;
+endsnippet
+
+snippet sfusecollections "Symfony2 / Use / Doctrine collection and array collection" b
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+endsnippet
+
+snippet sfusecontroller "Symfony2 / Use / Controller" b
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+endsnippet
+
+snippet sfusefile "Symfony2 / Use / UploadedFile" b
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+endsnippet
+
+snippet sfuseannotation "Symfony2 / Use / Annotation" b
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\\${1:ParamConverter};
+endsnippet
+
+snippet sfuseassert "Symfony2 / Use / Constraints" b
+use Symfony\Component\Validator\Constraints as Assert;
+endsnippet
+
+snippet sfusecontaineraware "Symfony2 / Use / Container aware" b
+use Symfony\Component\DependencyInjection\ContainerAware${1:Interface};
+endsnippet
+
+snippet sfuse "Symfony2 / Use / Default" b
+use `!v sniphpets#symfony#resolve_bundle_namespace()`\\${1:Entity\\${2}};
+endsnippet

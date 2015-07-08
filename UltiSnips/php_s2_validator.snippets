@@ -1,0 +1,31 @@
+priority -40
+
+snippet sfconstraint "Symfony2 / Validator / Constraint" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Validator\Constraint;
+
+class `!v sniphpets#basename()` extends Constraint
+{
+	public \$message = '${1}';
+}
+endsnippet
+
+snippet sfvalidator "Symfony2 / Validator Class" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\ConstraintValidator;
+
+class `!v sniphpets#basename()` extends ConstraintValidator
+{
+	public function validate(\$value, Constraint \$constraint)
+	{
+		${1}
+	}
+}
+endsnippet

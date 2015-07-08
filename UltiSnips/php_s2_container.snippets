@@ -1,0 +1,148 @@
+priority -40
+
+snippet sfcontaineraware "Symfony2 / Container / Container aware class" b
+
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\DependencyInjection\ContainerAware;
+
+class `!v sniphpets#basename()` extends ContainerAware
+{
+	{0}
+}
+endsnippet
+
+snippet sfcontainerawarei "Symfony2 / Container / Container aware class implements interface" b
+
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+
+class `!v sniphpets#basename()` implements ContainerAwareInterface
+{
+	private $container;
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function setContainer(ContainerInterface $container = null)
+	{
+		$this->container = $container;
+	}
+	
+	${0}
+}
+endsnippet
+
+snippet sfcontainerawaret "Symfony2 / Container / Container aware class uses trait" b
+
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+
+class `!v sniphpets#basename()` implements ContainerAwareInterface
+{
+	use ContainerAwareTrait;
+	
+	${0}
+}
+endsnippet
+
+snippet sfcontainerextension "Symfony2 / Container / Extension" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;  
+
+class `!v sniphpets#basename()` extends Extension
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	public function load(array $configs, ContainerBuilder $container)
+	{
+		${0}
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getAlias()
+	{
+		return '${1:`!v sniphpets#camel_to_snake(sniphpets#basename('Extension'))`}';
+	}
+}
+endsnippet
+
+snippet sfcontainerextensioni "Symfony2 / Container / Extension implements interface" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+
+class `!v sniphpets#basename()` implements ExtensionInterface
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	public function load(array $configs, ContainerBuilder $container)
+	{
+		${0}
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getNamespace()
+	{
+		return '${1}';
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getXsdValidationBasePath()
+	{
+		return '${2}';
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getAlias()
+	{
+		return '${3:`!v sniphpets#camel_to_snake(sniphpets#basename('Extension'))`}';
+	}
+}
+endsnippet
+
+snippet sfcompilerpass "Symfony2 / Container / Compiler pass" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
+class `!v sniphpets#basename()` implements CompilerPassInterface
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	public function process(ContainerBuilder $container)
+	{
+		${0}
+	}
+}
+endsnippet

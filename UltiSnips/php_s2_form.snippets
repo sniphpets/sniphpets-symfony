@@ -1,0 +1,141 @@
+priority -40
+
+snippet sfform "Symfony2 / Form / Form type" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+class `!v sniphpets#basename()` extends AbstractType
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	public function buildForm(FormBuilderInterface \$builder, array \$options)
+	{
+		\$builder
+			->add(${0}
+		;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function setDefaultOptions(OptionsResolverInterface \$resolver)
+	{
+		\$resolver->setDefaults(array(
+			'data_class' => ${1:'`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity\\`!v sniphpets#basename('Type')`'},
+		));
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getName()
+	{
+		return '${2:`!v sniphpets#camel_to_snake(sniphpets#symfony#resolve_bundle_name() . sniphpets#basename('Type'))`}';
+	}
+}
+endsnippet
+
+snippet sfformextension "Symfony2 / Form / Form type extension" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Form\AbstractTypeExtension;
+
+class `!v sniphpets#basename()` extends AbstractTypeExtension
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getExtendedType()
+	{
+		return '${1:form}';
+	}
+}
+endsnippet
+
+snippet sfformbuildform "Symfony 2 / Form / buildForm method" b
+/**
+ * {@inheritdoc}
+ */
+public function buildForm(FormBuilderInterface \$builder, array \$options)
+{
+	\$builder
+		->add(${0}
+	;
+}
+endsnippet
+
+snippet sfformconfigureoptions "Symfony 2 / Form / Configure options" b
+/**
+ * {@inheritdoc}
+ */
+public function setDefaultOptions(OptionsResolverInterface \$resolver)
+{
+	\$resolver->${1:setDefaults}(array(
+		${0}
+	));
+}
+endsnippet
+
+snippet sfformbuildview "Symfony 2 / Form / buildView method" b
+/**
+ * {@inheritdoc}
+ */
+ public function buildView(FormView \$view, FormInterface \$form, array \$options)
+ {
+ 	${0}
+ }
+endsnippet
+
+snippet sfformfinishview "Symfony 2 / Form / buildView method" b
+/**
+ * {@inheritdoc}
+ */
+ public function finishView(FormView \$view, FormInterface \$form, array \$options)
+ {
+ 	${0}
+ }
+endsnippet
+
+snippet sfdatatransformer "Symfony2 / Form / Data transformer" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\UnexpectedTypeException;
+use Symfony\Component\Form\Exception\TransformationFailedException;
+
+class `!v sniphpets#basename()` implements DataTransformerInterface
+{
+	/**
+	 * {@inheritdoc}
+	 */
+	public function transform(\$value)
+	{
+		${0}
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function reverseTransform(\$value)
+	{
+	}
+}
+endsnippet
+
+snippet sfhandleform "Symfony 2 / Form / Handle" b
+$${1:form}->handleRequest($${2:request});
+
+if (\$$1->isSubmitted() && \$$1->isValid()) {
+	${0}
+}
+endsnippet

@@ -1,0 +1,66 @@
+priority -40
+
+snippet sfbundle "Symfony2 / Bundle / Bundle class" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class `!v sniphpets#basename()` extends Bundle
+{
+}
+endsnippet
+
+snippet sfbundleextension "Symfony2 / Bundle / Extension class" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+
+class `!v sniphpets#basename()` extends Extension
+{
+	/**
+	 * {@inheritDoc}
+	 */
+	public function load(array $configs, ContainerBuilder $container)
+	{
+		$configuration = new Configuration();
+		$config = $this->processConfiguration($configuration, $configs);
+		${0}
+		$loader = new Loader\YamlFileLoader(
+			$container,
+			new FileLocator(__DIR__.'/../Resources/config')
+		);
+
+		$loader->load('services.yml');
+	}
+}
+endsnippet
+
+snippet sfbundleconfig "Symfony2 / Bundle / Config class" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
+
+class `!v sniphpets#basename()` implements ConfigurationInterface
+{
+	/**
+	 * {@inheritDoc}
+	 */
+	public function getConfigTreeBuilder()
+	{
+		$treeBuilder = new TreeBuilder();
+		$rootNode = $treeBuilder->root('${1:bundle_namespace}');
+		${0}
+		return $treeBuilder;
+	}
+}
+endsnippet

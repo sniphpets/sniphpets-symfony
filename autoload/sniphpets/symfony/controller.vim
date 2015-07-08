@@ -1,0 +1,58 @@
+if exists('g:sniphpets_symfony_controller_autoload')
+    finish
+endif
+
+let g:sniphpets_symfony_controller_autoload = 1
+
+" Resolve templates path for the current controller
+" For example:
+" XBundle\Controller\Admin\BlogController -> 'XBundle:Admin/Blog:'
+" AppBundle\Controller\BlogController -> 'admin/blog/' (see best practices)
+fun! sniphpets#symfony#controller#resolve_templates_path(...)
+    let fqn = a:0 > 1 ? a:1 : sniphpets#resolve_fqn()
+
+    let bundle = matchstr(fqn, '[^\\]\+Bundle')
+
+    let path = sniphpets#symfony#controller#get_controller_path(fqn)
+
+    if bundle == sniphpets#settings('symfony_app_bundle')
+        let path = substitute(sniphpets#camel_to_snake(path), '/_', '/', 'g')
+        let path = path . '/'
+    else
+        let path = printf('%s:%s:', bundle, path)
+    endif
+
+    return path
+endf
+
+" Resolve route for the current controller
+" For example:
+" AppBundle\Controller\Admin\UserProfileController -> @Route("/admin/user-profile")
+fun! sniphpets#symfony#controller#resolve_route(...)
+    let fqn = a:0 > 1 ? a:1 : sniphpets#resolve_fqn()
+    let path = sniphpets#symfony#controller#get_controller_path(fqn)
+    let route = substitute(sniphpets#camel_to_snake(path, '-'), '/-', '/', 'g')
+
+    return route
+endf 
+
+" Resolve route name prefix for the current controller
+" For example:
+" AppBundle\Admin\UserProfileController -> 'admin_user_profile_',
+fun! sniphpets#symfony#controller#resolve_route_name_prefix(...)
+    let fqn = a:0 > 1 ? a:1 : sniphpets#resolve_fqn()
+    let path = sniphpets#symfony#controller#get_controller_path(fqn)
+    let route = substitute(sniphpets#camel_to_snake(path, '_'), '/', '', 'g')
+
+    return sniphpets#settings('symfony_route_prefix') . route
+endf
+
+" For example:
+" AppBundle\Controller\Admin\BlogController -> 'Admin/Blog'
+fun! sniphpets#symfony#controller#get_controller_path(fqn)
+    let path = strpart(a:fqn, stridx(a:fqn, '\Controller\') + 12)
+    let path = strpart(path, 0, strlen(path) - 10)
+    let path = tr(path, '\', '/')
+
+    return path
+endf
