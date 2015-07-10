@@ -41,10 +41,19 @@ endf
 " AppBundle\Admin\UserProfileController -> 'admin_user_profile_',
 fun! sniphpets#symfony#controller#resolve_route_name_prefix(...)
     let fqn = a:0 > 1 ? a:1 : sniphpets#resolve_fqn()
-    let path = sniphpets#symfony#controller#get_controller_path(fqn)
-    let route = substitute(sniphpets#camel_to_snake(path, '_'), '/', '', 'g')
 
-    return sniphpets#settings('symfony_route_prefix') . route
+    let route_prefix = sniphpets#settings('symfony_route_prefix')
+    let parts_delimiter = sniphpets#settings('symfony_route_parts_delimiter', '_')
+
+    let path = sniphpets#symfony#controller#get_controller_path(fqn)
+    let parts = map(split(path, '/'), 'sniphpets#camel_to_snake(v:val)')
+    let route = join(parts, parts_delimiter) . parts_delimiter
+
+    if route_prefix != ''
+        let route = route_prefix . parts_delimiter . route
+    endif
+
+    return route
 endf
 
 " For example:
