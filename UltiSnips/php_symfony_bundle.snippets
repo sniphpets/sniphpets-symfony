@@ -24,9 +24,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class `!v sniphpets#basename()` extends Extension
 {
-	/**
-	 * {@inheritDoc}
-	 */
 	public function load(array $configs, ContainerBuilder $container)
 	{
 		$configuration = new Configuration();
@@ -52,9 +49,6 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class `!v sniphpets#basename()` implements ConfigurationInterface
 {
-	/**
-	 * {@inheritDoc}
-	 */
 	public function getConfigTreeBuilder()
 	{
 		$treeBuilder = new TreeBuilder();

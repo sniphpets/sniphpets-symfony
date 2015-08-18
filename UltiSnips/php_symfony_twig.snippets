@@ -7,25 +7,16 @@ namespace `!v sniphpets#resolve_namespace()`;
 
 class `!v sniphpets#basename()` extends \Twig_Extension
 {
-	/**
-	 * {@inheritdoc}
-	 */
 	public function getFilters()
 	{
 		return array();
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function getFunctions()
 	{
 		return array();
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function getName()
 	{
 		return '${1:`!v sniphpets#camel_to_snake(sniphpets#symfony#resolve_bundle_name() . sniphpets#basename('Extension'))`}';

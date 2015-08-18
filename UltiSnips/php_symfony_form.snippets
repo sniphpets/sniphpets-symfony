@@ -11,9 +11,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class `!v sniphpets#basename()` extends AbstractType
 {
-	/**
-	 * {@inheritdoc}
-	 */
 	public function buildForm(FormBuilderInterface \$builder, array \$options)
 	{
 		\$builder
@@ -21,9 +18,6 @@ class `!v sniphpets#basename()` extends AbstractType
 		;
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function setDefaultOptions(OptionsResolverInterface \$resolver)
 	{
 		\$resolver->setDefaults(array(
@@ -31,9 +25,6 @@ class `!v sniphpets#basename()` extends AbstractType
 		));
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function getName()
 	{
 		return '${2:`!v sniphpets#camel_to_snake(sniphpets#symfony#resolve_bundle_name() . sniphpets#basename('Type'))`}';
@@ -50,9 +41,6 @@ use Symfony\Component\Form\AbstractTypeExtension;
 
 class `!v sniphpets#basename()` extends AbstractTypeExtension
 {
-	/**
-	 * {@inheritdoc}
-	 */
 	public function getExtendedType()
 	{
 		return '${1:form}';
@@ -61,9 +49,6 @@ class `!v sniphpets#basename()` extends AbstractTypeExtension
 endsnippet
 
 snippet sfformbuildform "Symfony 2 / Form / buildForm method" b
-/**
- * {@inheritdoc}
- */
 public function buildForm(FormBuilderInterface \$builder, array \$options)
 {
 	\$builder
@@ -73,9 +58,6 @@ public function buildForm(FormBuilderInterface \$builder, array \$options)
 endsnippet
 
 snippet sfformconfigureoptions "Symfony 2 / Form / Configure options" b
-/**
- * {@inheritdoc}
- */
 public function setDefaultOptions(OptionsResolverInterface \$resolver)
 {
 	\$resolver->${1:setDefaults}(array(
@@ -85,9 +67,6 @@ public function setDefaultOptions(OptionsResolverInterface \$resolver)
 endsnippet
 
 snippet sfformbuildview "Symfony 2 / Form / buildView method" b
-/**
- * {@inheritdoc}
- */
  public function buildView(FormView \$view, FormInterface \$form, array \$options)
  {
  	${0}
@@ -95,9 +74,6 @@ snippet sfformbuildview "Symfony 2 / Form / buildView method" b
 endsnippet
 
 snippet sfformfinishview "Symfony 2 / Form / buildView method" b
-/**
- * {@inheritdoc}
- */
  public function finishView(FormView \$view, FormInterface \$form, array \$options)
  {
  	${0}
@@ -115,17 +91,11 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class `!v sniphpets#basename()` implements DataTransformerInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
 	public function transform(\$value)
 	{
 		${0}
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function reverseTransform(\$value)
 	{
 	}
