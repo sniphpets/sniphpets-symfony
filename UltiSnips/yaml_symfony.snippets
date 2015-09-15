@@ -55,24 +55,15 @@ ${1:app}.listener.${2}:
 	class: ${3:AppBundle}\EventListener\\${4}Listener
 	${5:arguments: [ ${6} ]}
 	tags:
-		- { name: kernel.event_listener, event: ${7:kernel.request}, method: ${8:handle} }
-endsnippet
-
-snippet sfdoctrinesubscriber "Symfony / Service / Doctrine event subscriber" b
-${1:app}.listener.${2}:
-	class: ${3:AppBundle}\EventListener\\${4}Listener
-	${5:arguments: [ ${6} ]}
-	tags:
-		- { name: doctrine.orm.entity_listener${7:, entity_manager: ${8:custom}} }
-
+		- { name: ${7:kernel}.event_listener, event: ${8:kernel.request}, method: ${9:handle} }
 endsnippet
 
 snippet sfeventsubscriber "Symfony / Service / Event subscriber" b
-${1:app}.listener.${2}:
-	class: ${3:AppBundle}\EventListener\\${4}Listener
+${1:app}.subscriber.${2}:
+	class: ${3:AppBundle}\EventListener\\${4}Subscriber
 	${5:arguments: [ ${6} ]}
 	tags:
-		- { name: kernel.event_subscriber }
+		- { name: ${7:kernel}.event_subscriber }
 endsnippet
 
 snippet sftwigextension "Symfony / Service / Twig extension" b
