@@ -1,6 +1,6 @@
 priority -40
 
-snippet sfroute "Symfony2 / YAML / Route" b
+snippet sfroute "Symfony / Routing / Route definition" b
 ${1:route_name}:
 	path: ${2:/}
 	defaults:
@@ -9,7 +9,7 @@ ${1:route_name}:
 		_method: ${4:GET|POST}
 endsnippet
 
-snippet sfroutetemplate "Symfony2 / YAML / Route: template" b
+snippet sfroutetemplate "Symfony / Routing / Static template" b
 ${1:route_name}:
 	path: ${2:/}
 	defaults:
@@ -17,7 +17,7 @@ ${1:route_name}:
 		template: ${3:static/${4:name}}.${5:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}
 endsnippet
 
-snippet sfrouteredirect "Symfony2 / YAML / Route: redirect to route" b
+snippet sfrouteredirect "Symfony / Routing / Redirect to route" b
 ${1:route_name}:
 	path: ${2:/}
 	defaults:
@@ -26,7 +26,7 @@ ${1:route_name}:
 		permanent: ${4:true}
 endsnippet
 
-snippet sfrouteredirectu "Symfony2 / YAML / Route: redirect to url" b
+snippet sfrouteredirectu "Symfony / Routing / Redirect to url" b
 ${1:route_name}:
 	path: ${2:/}
 	defaults:
@@ -35,9 +35,49 @@ ${1:route_name}:
 		permanent: ${4:true}
 endsnippet
 
-snippet sfservice "Symfony2 / YAML / Service" b
+snippet sfservice "Symfony / Service / Service definition" b
 ${1:service_name}:
-	class: ${2:%$1.class%}
+	class: ${2}
 	arguments:
 		- ${3}
+endsnippet
+
+snippet sfformtype "Symfony / Service / Form type" b
+${1:app}.form.type.${2}:
+	class: ${3:AppBundle}\Form\Type\\${4}
+	${4:arguments: [ ${5} ]}
+	tags:
+		- { name: form.type, alias: $2 }
+endsnippet
+
+snippet sfeventlistener "Symfony / Service / Event listener" b
+${1:app}.listener.${2}:
+	class: ${3:AppBundle}\EventListener\\${4}Listener
+	${5:arguments: [ ${6} ]}
+	tags:
+		- { name: kernel.event_listener, event: ${7:kernel.request}, method: ${8:handle} }
+endsnippet
+
+snippet sfeventsubscriber "Symfony / Service / Event subscriber" b
+${1:app}.listener.${2}:
+	class: ${3:AppBundle}\EventListener\\${4}Listener
+	${5:arguments: [ ${6} ]}
+	tags:
+		- { name: kernel.event_subscriber }
+endsnippet
+
+snippet sftwigextension "Symfony / Service / Twig extension" b
+${1:app}.twig.${2}_extension:
+	public: false
+	class: ${2:AppBundle}\Twig\\${3}Extension
+	${4:arguments: [ ${5} ]}
+	tags:
+		- { name: twig.extension }
+endsnippet
+
+snippet sfrepository "Symfony / Service / Repository as a service" b
+${1:app}.repository.${2}:
+	class: Doctrine\ORM\EntityRepository
+	factory: [ @doctrine.orm.entity_manager, getRepository ]
+	arguments: [ ${3:AppBundle}\Entity\\${4} ]
 endsnippet
