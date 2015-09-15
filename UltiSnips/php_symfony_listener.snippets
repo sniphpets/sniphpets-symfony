@@ -1,0 +1,137 @@
+priority -40
+
+snippet sfeventsubscriber "Symfony / Event listener / Event subscriber" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class `!v sniphpets#basename()` implements EventSubscriberInterface
+{
+	public static function getSubscribedEvents()
+	{
+		return array(
+			'${1}' => '${2}',${0}
+		);
+	}
+}
+
+endsnippet
+
+snippet sfeventlistener "Symfony / Event listener / kernel.request" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+
+class `!v sniphpets#basename()`
+{
+	public function onKernelRequest(GetResponseEvent $event)
+	{
+		$request = $event->getRequest();
+		${0}
+	}
+}
+endsnippet
+
+snippet sfeventlistener "Symfony / Event listener / kernel.controller" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+
+class `!v sniphpets#basename()`
+{
+	public function onKernelController(FilterControllerEvent $event)
+	{
+		$controller = $event->getController();
+		${0}
+	}
+}
+endsnippet
+
+snippet sfeventlistener "Symfony / Event listener / kernel.view" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
+
+class `!v sniphpets#basename()`
+{
+	public function onKernelView(GetResponseForControllerResultEvent $event)
+	{
+		$result = $event->getControllerResult();
+		${0}
+	}
+}
+endsnippet
+
+snippet sfeventlistener "Symfony / Event listener / kernel.response" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+
+class `!v sniphpets#basename()`
+{
+	public function onKernelResponse(FilterResponseEvent $event)
+	{
+		$response = $event->getResponse();
+		${0}
+	}
+}
+endsnippet
+
+snippet sfeventlistener "Symfony / Event listener / kernel.finish_request" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Event\FinishRequestEvent;
+
+class `!v sniphpets#basename()`
+{
+	public function onKernelFinishRequest(FinishRequestEvent $event)
+	{
+		${0}
+	}
+}
+endsnippet
+
+snippet sfeventlistener "Symfony / Event listener / kernel.terminate" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Event\PostResponseEvent;
+
+class `!v sniphpets#basename()`
+{
+	public function onKernelTerminate(PostResponseEvent $event)
+	{
+		${0}
+	}
+}
+endsnippet
+
+snippet sfeventlistener "Symfony / Event listener / kernel.exception" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+
+class `!v sniphpets#basename()`
+{
+	public function onKernelTerminate(GetResponseForExceptionEvent $event)
+	{
+		$exception = $event->getException();
+		${0}
+	}
+}
+endsnippet
