@@ -32,7 +32,7 @@ class `!v sniphpets#basename()` extends AbstractType
 }
 endsnippet
 
-snippet sfformextension "Symfony2 / Form / Form type extension" b
+snippet sfformextension "Symfony / Form / Form type extension" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -48,16 +48,16 @@ class `!v sniphpets#basename()` extends AbstractTypeExtension
 }
 endsnippet
 
-snippet sfformbuildform "Symfony 2 / Form / buildForm method" b
+snippet sfformbuildform "Symfony / Form / buildForm method" b
 public function buildForm(FormBuilderInterface \$builder, array \$options)
 {
 	\$builder
-		->add(${0}
+		->add(${0})
 	;
 }
 endsnippet
 
-snippet sfformconfigureoptions "Symfony 2 / Form / Configure options" b
+snippet sfformconfigureoptions "Symfony / Form / Configure options" b
 public function setDefaultOptions(OptionsResolverInterface \$resolver)
 {
 	\$resolver->${1:setDefaults}(array(
@@ -66,21 +66,27 @@ public function setDefaultOptions(OptionsResolverInterface \$resolver)
 }
 endsnippet
 
-snippet sfformbuildview "Symfony 2 / Form / buildView method" b
+snippet sfformbuildview "Symfony / Form / buildView method" b
  public function buildView(FormView \$view, FormInterface \$form, array \$options)
  {
  	${0}
  }
 endsnippet
 
-snippet sfformfinishview "Symfony 2 / Form / buildView method" b
+snippet sfformfinishview "Symfony / Form / finishView method" b
  public function finishView(FormView \$view, FormInterface \$form, array \$options)
  {
  	${0}
  }
 endsnippet
 
-snippet sfdatatransformer "Symfony2 / Form / Data transformer" b
+snippet sfformadd "Symfony / Form / Add field" b
+->add('${1:name}', ${2:type}, array(
+	${0}
+))
+endsnippet
+
+snippet sfdatatransformer "Symfony / Form / Data transformer" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -102,7 +108,7 @@ class `!v sniphpets#basename()` implements DataTransformerInterface
 }
 endsnippet
 
-snippet sfhandleform "Symfony 2 / Form / Handle" b
+snippet sfhandleform "Symfony / Form / Handle" b
 $${1:form}->handleRequest($${2:request});
 
 if (\$$1->isSubmitted() && \$$1->isValid()) {
