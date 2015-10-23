@@ -128,6 +128,31 @@ class `!v sniphpets#basename()` implements DataMapperInterface
 }
 endsnippet
 
+snippet sfformextension "Symfony / Form / Extension" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Form\AbstractExtension;
+
+class `!v sniphpets#basename()` extends AbstractExtension
+{
+	protected function loadTypes()
+	{
+		return array(${0});
+	}
+
+	protected function loadTypeExtensions()
+	{
+		return array();
+	}
+
+	protected function loadTypeGuesser()
+	{
+	}
+}
+endsnippet
+
 snippet sfformhandle "Symfony / Form / Handle" b
 \$${1:form}->handleRequest(\$${2:request});
 
