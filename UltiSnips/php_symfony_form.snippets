@@ -108,6 +108,26 @@ class `!v sniphpets#basename()` implements DataTransformerInterface
 }
 endsnippet
 
+snippet sfformdatamapper "Symfony / Form / Data mapper" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Form\DataMapperInterface;
+
+class `!v sniphpets#basename()` implements DataMapperInterface
+{
+	public function mapDataToForms(\$data, \$forms)
+	{
+		${0}
+	}
+
+	public function mapFormsToData(\$forms, &\$data)
+	{
+	}
+}
+endsnippet
+
 snippet sfformhandle "Symfony / Form / Handle" b
 \$${1:form}->handleRequest(\$${2:request});
 
