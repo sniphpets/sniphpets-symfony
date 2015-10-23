@@ -1,6 +1,6 @@
 priority -40
 
-snippet sfcontaineraware "Symfony2 / Container / Container aware class" b
+snippet sfcontaineraware "Symfony / Container / Container aware class" b
 
 <?php
 
@@ -14,7 +14,7 @@ class `!v sniphpets#basename()` extends ContainerAware
 }
 endsnippet
 
-snippet sfcontainerawarei "Symfony2 / Container / Container aware class implements interface" b
+snippet sfcontainerawarei "Symfony / Container / Container aware class implements interface" b
 
 <?php
 
@@ -31,12 +31,12 @@ class `!v sniphpets#basename()` implements ContainerAwareInterface
 	{
 		$this->container = $container;
 	}
-	
+
 	${0}
 }
 endsnippet
 
-snippet sfcontainerawaret "Symfony2 / Container / Container aware class uses trait" b
+snippet sfcontainerawaret "Symfony / Container / Container aware class uses trait" b
 
 <?php
 
@@ -47,32 +47,26 @@ use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 class `!v sniphpets#basename()` implements ContainerAwareInterface
 {
 	use ContainerAwareTrait;
-	
+
 	${0}
 }
 endsnippet
 
-snippet sfcontainerextension "Symfony2 / Container / Extension" b
+snippet sfcontainerextension "Symfony / Container / Extension" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;  
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class `!v sniphpets#basename()` extends Extension
 {
-	/**
-	 * {@inheritdoc}
-	 */
 	public function load(array $configs, ContainerBuilder $container)
 	{
 		${0}
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function getAlias()
 	{
 		return '${1:`!v sniphpets#camel_to_snake(sniphpets#basename('Extension'))`}';
@@ -80,7 +74,7 @@ class `!v sniphpets#basename()` extends Extension
 }
 endsnippet
 
-snippet sfcontainerextensioni "Symfony2 / Container / Extension implements interface" b
+snippet sfcontainerextensioni "Symfony / Container / Extension implements interface" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -112,7 +106,7 @@ class `!v sniphpets#basename()` implements ExtensionInterface
 }
 endsnippet
 
-snippet sfcompilerpass "Symfony2 / Container / Compiler pass" b
+snippet sfcompilerpass "Symfony / Container / Compiler pass" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
