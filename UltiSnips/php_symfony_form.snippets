@@ -1,6 +1,6 @@
 priority -40
 
-snippet sfformtype "Symfony2 / Form / Form type" b
+snippet sfformtype "Symfony / Form / Form type" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -18,7 +18,7 @@ class `!v sniphpets#basename()` extends AbstractType
 		;
 	}
 
-	public function setDefaultOptions(OptionsResolverInterface \$resolver)
+	public function configureOptions(OptionsResolverInterface \$resolver)
 	{
 		\$resolver->setDefaults(array(
 			'data_class' => ${1:'`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity\\`!v sniphpets#basename('Type')`'},
@@ -57,8 +57,8 @@ public function buildForm(FormBuilderInterface \$builder, array \$options)
 }
 endsnippet
 
-snippet sfformconfigureoptions "Symfony / Form / Configure options" b
-public function setDefaultOptions(OptionsResolverInterface \$resolver)
+snippet sfformconfigureoptions "Symfony / Form / configureOptions method" b
+public function configureOptions(OptionsResolverInterface \$resolver)
 {
 	\$resolver->${1:setDefaults}(array(
 		${0}
