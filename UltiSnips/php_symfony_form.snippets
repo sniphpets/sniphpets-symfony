@@ -1,6 +1,6 @@
 priority -40
 
-snippet sfform "Symfony2 / Form / Form type" b
+snippet sfformtype "Symfony2 / Form / Form type" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -32,7 +32,7 @@ class `!v sniphpets#basename()` extends AbstractType
 }
 endsnippet
 
-snippet sfformextension "Symfony / Form / Form type extension" b
+snippet sfformtypeextension "Symfony / Form / Form type extension" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -67,17 +67,17 @@ public function setDefaultOptions(OptionsResolverInterface \$resolver)
 endsnippet
 
 snippet sfformbuildview "Symfony / Form / buildView method" b
- public function buildView(FormView \$view, FormInterface \$form, array \$options)
- {
- 	${0}
- }
+public function buildView(FormView \$view, FormInterface \$form, array \$options)
+{
+	${0}
+}
 endsnippet
 
 snippet sfformfinishview "Symfony / Form / finishView method" b
- public function finishView(FormView \$view, FormInterface \$form, array \$options)
- {
- 	${0}
- }
+public function finishView(FormView \$view, FormInterface \$form, array \$options)
+{
+	${0}
+}
 endsnippet
 
 snippet sfformadd "Symfony / Form / Add field" b
@@ -86,7 +86,7 @@ snippet sfformadd "Symfony / Form / Add field" b
 ))
 endsnippet
 
-snippet sfdatatransformer "Symfony / Form / Data transformer" b
+snippet sfformdatatransformer "Symfony / Form / Data transformer" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -108,8 +108,8 @@ class `!v sniphpets#basename()` implements DataTransformerInterface
 }
 endsnippet
 
-snippet sfhandleform "Symfony / Form / Handle" b
-$${1:form}->handleRequest($${2:request});
+snippet sfformhandle "Symfony / Form / Handle" b
+\$${1:form}->handleRequest(\$${2:request});
 
 if (\$$1->isSubmitted() && \$$1->isValid()) {
 	${0}
