@@ -1,5 +1,18 @@
 priority -40
 
+snippet sfevent "Symfony / Event / Event base class" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\EventDispatcher\Event;
+
+class `!v sniphpets#basename()` extends Event
+{
+	${0}
+}
+endsnippet
+
 snippet sfeventsubscriber "Symfony / Event listener / Event subscriber" b
 <?php
 
@@ -16,7 +29,6 @@ class `!v sniphpets#basename()` implements EventSubscriberInterface
 		);
 	}
 }
-
 endsnippet
 
 snippet sfeventlistener "Symfony / Event listener / kernel.request" b
@@ -28,9 +40,9 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class `!v sniphpets#basename()`
 {
-	public function onKernelRequest(GetResponseEvent $event)
+	public function onKernelRequest(GetResponseEvent \$event)
 	{
-		$request = $event->getRequest();
+		\$request = \$event->getRequest();
 		${0}
 	}
 }
@@ -45,9 +57,9 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class `!v sniphpets#basename()`
 {
-	public function onKernelController(FilterControllerEvent $event)
+	public function onKernelController(FilterControllerEvent \$event)
 	{
-		$controller = $event->getController();
+		\$controller = \$event->getController();
 		${0}
 	}
 }
@@ -62,9 +74,9 @@ use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 
 class `!v sniphpets#basename()`
 {
-	public function onKernelView(GetResponseForControllerResultEvent $event)
+	public function onKernelView(GetResponseForControllerResultEvent \$event)
 	{
-		$result = $event->getControllerResult();
+		\$result = \$event->getControllerResult();
 		${0}
 	}
 }
@@ -79,9 +91,9 @@ use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
 class `!v sniphpets#basename()`
 {
-	public function onKernelResponse(FilterResponseEvent $event)
+	public function onKernelResponse(FilterResponseEvent \$event)
 	{
-		$response = $event->getResponse();
+		\$response = \$event->getResponse();
 		${0}
 	}
 }
@@ -96,7 +108,7 @@ use Symfony\Component\HttpKernel\Event\FinishRequestEvent;
 
 class `!v sniphpets#basename()`
 {
-	public function onKernelFinishRequest(FinishRequestEvent $event)
+	public function onKernelFinishRequest(FinishRequestEvent \$event)
 	{
 		${0}
 	}
@@ -112,7 +124,7 @@ use Symfony\Component\HttpKernel\Event\PostResponseEvent;
 
 class `!v sniphpets#basename()`
 {
-	public function onKernelTerminate(PostResponseEvent $event)
+	public function onKernelTerminate(PostResponseEvent \$event)
 	{
 		${0}
 	}
@@ -128,9 +140,9 @@ use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 
 class `!v sniphpets#basename()`
 {
-	public function onKernelTerminate(GetResponseForExceptionEvent $event)
+	public function onKernelTerminate(GetResponseForExceptionEvent \$event)
 	{
-		$exception = $event->getException();
+		\$exception = \$event->getException();
 		${0}
 	}
 }
