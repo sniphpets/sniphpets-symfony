@@ -3,10 +3,9 @@ priority -40
 snippet sfroute "Symfony / Routing / Route definition" b
 ${1:route_name}:
 	path: ${2:/}
+	methods: [${3:GET}]
 	defaults:
-		_controller: ${3:Bundle:Controller:action}
-	requirements:
-		_method: ${4:GET|POST}
+		_controller: ${4:Bundle:Controller:action}
 endsnippet
 
 snippet sfroutetemplate "Symfony / Routing / Static template" b
