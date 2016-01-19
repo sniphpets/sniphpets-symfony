@@ -1,6 +1,6 @@
 # sniphpets-symfony [![Build Status](https://travis-ci.org/sniphpets/sniphpets-symfony.svg?branch=master)](https://travis-ci.org/sniphpets/sniphpets-symfony)
 
-This repository contains [Symfony](http://symfony.com) snippets for the Vim. This snippets were inspired by [ultisnips-php](https://github.com/algotech/ultisnips-php), but this snippets more smart, because they try to guess what are you want and have many configuration settings.
+This repository contains [Symfony](http://symfony.com) snippets for the Vim. This snippets were inspired by [ultisnips-php](https://github.com/algotech/ultisnips-php), but this snippets more smart, because they try to guess what you want and have many configuration settings.
 
 ## Installation
 
