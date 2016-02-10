@@ -7,6 +7,33 @@ namespace `!v sniphpets#resolve_namespace()`;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class `!v sniphpets#basename()` extends AbstractType
+{
+	public function buildForm(FormBuilderInterface \$builder, array \$options)
+	{
+		\$builder
+			->add(${0}
+		;
+	}
+
+	public function configureOptions(OptionsResolver \$resolver)
+	{
+		\$resolver->setDefaults(array(
+			'data_class' => ${1:'`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity\\`!v sniphpets#basename('Type')`'},
+		));
+	}
+}
+endsnippet
+
+snippet sfformtype2 "Symfony / Form / Form type (Symfony 2)" b
+<?php
+
+namespace `!v sniphpets#resolve_namespace()`;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class `!v sniphpets#basename()` extends AbstractType

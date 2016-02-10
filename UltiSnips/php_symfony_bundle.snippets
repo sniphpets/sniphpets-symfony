@@ -12,7 +12,7 @@ class `!v sniphpets#basename()` extends Bundle
 }
 endsnippet
 
-snippet sfbundleextension "Symfony / Bundle / Extension class (YAML)" b
+snippet sfbundleextensiony "Symfony / Bundle / Extension class (YAML)" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -36,7 +36,7 @@ class `!v sniphpets#basename()` extends Extension
 }
 endsnippet
 
-snippet sfbundleextension "Symfony / Bundle / Extension class (XML)" b
+snippet sfbundleextensionx "Symfony / Bundle / Extension class (XML)" b
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -73,7 +73,7 @@ class `!v sniphpets#basename()` implements ConfigurationInterface
 	public function getConfigTreeBuilder()
 	{
 		\$treeBuilder = new TreeBuilder();
-		\$rootNode = \$treeBuilder->root('${1:bundle_namespace}');
+		\$rootNode = \$treeBuilder->root('${1:`!v sniphpets#camel_to_snake(sniphpets#symfony#resolve_bundle_name())`}');
 		${0}
 		return \$treeBuilder;
 	}
