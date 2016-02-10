@@ -1,7 +1,6 @@
 priority -40
 
 snippet sfcontaineraware "Symfony / Container / Container aware class" b
-
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -10,12 +9,11 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 
 class `!v sniphpets#basename()` extends ContainerAware
 {
-	{0}
+	${0}
 }
 endsnippet
 
 snippet sfcontainerawarei "Symfony / Container / Container aware class implements interface" b
-
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
@@ -37,7 +35,6 @@ class `!v sniphpets#basename()` implements ContainerAwareInterface
 endsnippet
 
 snippet sfcontainerawaret "Symfony / Container / Container aware class uses trait" b
-
 <?php
 
 namespace `!v sniphpets#resolve_namespace()`;
