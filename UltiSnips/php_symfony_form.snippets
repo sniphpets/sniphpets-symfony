@@ -20,9 +20,9 @@ class `!v sniphpets#basename()` extends AbstractType
 
 	public function configureOptions(OptionsResolver \$resolver)
 	{
-		\$resolver->setDefaults(array(
+		\$resolver->setDefaults([
 			'data_class' => ${1:'`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity\\`!v sniphpets#basename('Type')`'},
-		));
+		]);
 	}
 }
 endsnippet
@@ -47,9 +47,9 @@ class `!v sniphpets#basename()` extends AbstractType
 
 	public function configureOptions(OptionsResolverInterface \$resolver)
 	{
-		\$resolver->setDefaults(array(
+		\$resolver->setDefaults([
 			'data_class' => ${1:'`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity\\`!v sniphpets#basename('Type')`'},
-		));
+		]);
 	}
 
 	public function getName()
@@ -87,9 +87,9 @@ endsnippet
 snippet sfformconfigureoptions "Symfony / Form / configureOptions method" b
 public function configureOptions(OptionsResolverInterface \$resolver)
 {
-	\$resolver->${1:setDefaults}(array(
+	\$resolver->${1:setDefaults}([
 		${0}
-	));
+	]);
 }
 endsnippet
 
@@ -108,9 +108,9 @@ public function finishView(FormView \$view, FormInterface \$form, array \$option
 endsnippet
 
 snippet sfformadd "Symfony / Form / Add field" b
-->add('${1:name}', ${2:type}, array(
+->add('${1:name}', ${2:type}, [
 	${0}
-))
+])
 endsnippet
 
 snippet sfformdatatransformer "Symfony / Form / Data transformer" b
@@ -166,12 +166,12 @@ class `!v sniphpets#basename()` extends AbstractExtension
 {
 	protected function loadTypes()
 	{
-		return array(${0});
+		return [${0}];
 	}
 
 	protected function loadTypeExtensions()
 	{
-		return array();
+		return [];
 	}
 
 	protected function loadTypeGuesser()
