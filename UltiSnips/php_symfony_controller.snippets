@@ -45,7 +45,7 @@ public function ${1:index}Action(${2:Request $request})
 {
 	${0}
 
-	return \$this->render('${3:`!v sniphpets#symfony#controller#resolve_templates_path()`}${4:${1/[A-Z]/_\l$0/g}}.${5:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${6:, [ ${7} ]});
+	return \$this->render('${3:`!v sniphpets#symfony#controller#resolve_templates_path()`}${4:${1/[A-Z]/_\l$0/g}}.${5:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${6:, [${7}]});
 }
 endsnippet
 
@@ -69,18 +69,18 @@ public function ${1:index}Action(${7:Request $request})
 {
 	${0}
 
-	return \$this->render('${8:`!v sniphpets#symfony#controller#resolve_templates_path()`}${9:${1/[A-Z]/_\l$0/g}}.${10:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${11:, [ ${12} ]});
+	return \$this->render('${8:`!v sniphpets#symfony#controller#resolve_templates_path()`}${9:${1/[A-Z]/_\l$0/g}}.${10:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${11:, [${12}]});
 }
 endsnippet
 
 snippet sfrender "Symfony2 / Controller / Render"
-return \$this->render('`!v sniphpets#symfony#controller#resolve_templates_path()`${1:index}.${2:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${3:, [ ${4} ]});
+return \$this->render('`!v sniphpets#symfony#controller#resolve_templates_path()`${1:index}.${2:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${3:, [${4}]});
 endsnippet
 
 snippet sfforward "Symfony2 / Controller / Forward"
 \$this->forward(
 	'${1:Bundle}:${2:Controller}:${3:action}',
-	[ ${4} ]
+	[${4}]
 );
 endsnippet
 
@@ -88,7 +88,7 @@ snippet sfredirect "Symfony2 / Controller / Redirect"
 \$this->redirect(
 	\$this->generateUrl(
 		'${1:route}',
-		[ ${2} ]
+		[${2}]
 	)${3:,
 	code}
 );
