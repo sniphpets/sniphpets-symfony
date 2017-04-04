@@ -1,5 +1,12 @@
 priority -40
 
+global !p
+import sniphpets
+
+def resolve_label(name):
+	return sniphpets.ucfirst(sniphpets.camel_to_snake(name, ' '))
+endglobal
+
 snippet sfformtype "Symfony / Form / Form type" b
 <?php
 
@@ -107,9 +114,21 @@ public function finishView(FormView \$view, FormInterface \$form, array \$option
 }
 endsnippet
 
+snippet sfformuse "Symfony / Form / Use type" b
+use Symfony\Component\Form\Extension\Core\Type\\${1:Text}Type;
+endsnippet
+
 snippet sfformadd "Symfony / Form / Add field" b
-->add('${1:name}', ${2:type}, [
-	${0}
+->add('${1:name}', ${2:Text}Type::class, [
+	'label' => '${3:`!p snip.rv = resolve_label(t[1])`}',${0}
+])
+endsnippet
+
+snippet sfformaddentity "Symfony / Form / Add entity field" b
+->add('${1:name}', EntityType::class, [
+	'label' => '${2:`!p snip.rv = resolve_label(t[1])`}',
+	'class' => ${3:`!p snip.rv = sniphpets.ucfirst(t[1])`}::class,
+	'choice_label' => '${4}',${0}
 ])
 endsnippet
 
