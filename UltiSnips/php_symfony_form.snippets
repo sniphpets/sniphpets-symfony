@@ -15,6 +15,7 @@ namespace `!v sniphpets#resolve_namespace()`;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use ${1:`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity}\\${2:`!v sniphpets#basename('Type')`};
 
 class `!v sniphpets#basename()` extends AbstractType
 {
@@ -28,7 +29,7 @@ class `!v sniphpets#basename()` extends AbstractType
 	public function configureOptions(OptionsResolver \$resolver)
 	{
 		\$resolver->setDefaults([
-			'data_class' => ${1:'`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity\\`!v sniphpets#basename('Type')`'},
+			'data_class' => $2::class,
 		]);
 	}
 }
@@ -121,6 +122,32 @@ endsnippet
 snippet sfformadd "Symfony / Form / Add field" b
 ->add('${1:name}', ${2:Text}Type::class, [
 	'label' => '${3:`!p snip.rv = resolve_label(t[1])`}',${0}
+])
+endsnippet
+
+snippet sfformaddcollection "Symfony / Form / Add collection field" b
+->add('${1:name}', CollectionType::class, [
+	'label' => '${2:`!p snip.rv = resolve_label(t[1])`}',
+	'entry_type' => ${3:`!p snip.rv = sniphpets.ucfirst(t[1])`}Type::class,
+])
+endsnippet
+
+snippet sfformaddchoice "Symfony / Form / Add choice field" b
+->add('${1:name}', ChoiceType::class, [
+	'label' => '${2:`!p snip.rv = resolve_label(t[1])`}',
+	'choices' => [
+		${0}
+	],
+])
+endsnippet
+
+snippet sfformaddrange "Symfony / Form / Add range field" b
+->add('${1:name}', RangeType::class, [
+	'label' => '${2:`!p snip.rv = resolve_label(t[1])`}',
+	'attr' => [
+		'min' => ${3:1},
+		'max' => ${4:10},
+	],
 ])
 endsnippet
 
