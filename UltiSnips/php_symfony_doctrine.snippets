@@ -3,22 +3,44 @@ priority -40
 snippet sfentity "Symfony / Doctrine / Entity" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(${1:repositoryClass="${2:`!v sniphpets#symfony#resolve_bundle_namespace()`\Repository\\`!v sniphpets#basename()`Repository}"})
- * @ORM\Table(name="${3:`!v sniphpets#camel_to_snake(sniphpets#basename())`}")
+ * @ORM\Entity(repositoryClass="App\Repository\\`!v sniphpets#basename()`Repository")
  */
 class `!v sniphpets#basename()`
 {
 	/**
-	 * @ORM\Id()
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	private \$id;${0}
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+	private \$id;
+
+	public function getId(): ?int
+	{
+		return $this->id;
+	}
+}
+endsnippet
+
+snippet sfrepository  "Symfony / Doctrine / Repository" b
+<?php
+
+namespace App\Repository;
+
+use App\Entity\\`!v sniphpets#basename('Repository')`;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Persistence\ManagerRegistry;
+
+class `!v sniphpets#basename()` extends ServiceEntityRepository
+{
+	public function __construct(ManagerRegistry $registry)
+	{
+		parent::__construct($registry, `!v sniphpets#basename('Repository')`::class);
+	}
 }
 endsnippet
