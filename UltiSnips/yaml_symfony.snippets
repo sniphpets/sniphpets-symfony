@@ -1,82 +1,38 @@
 priority -40
 
+global !p
+import sniphpets
+endglobal
+
 snippet sfroute "Symfony / Routing / Route definition" b
-${1:route_name}:
-	path: ${2:/}
-	methods: [${3:GET}]
-	defaults:
-		_controller: ${4:Bundle:Controller:action}
+`!p snip.rv = sniphpets.camel_to_snake(t[2])`_`!p snip.rv = sniphpets.camel_to_snake(t[3])`:
+	path: /${1}
+	controller: App\Controller\\${2}Controller::${3:index}
+	methods: [GET]
 endsnippet
 
-snippet sfroutetemplate "Symfony / Routing / Static template" b
+snippet sftemplate "Symfony / Routing / Static template" b
 ${1:route_name}:
-	path: ${2:/}
+	path: /${2}
+	controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
 	defaults:
-		_controller: FrameworkBundle:Template:template
-		template: ${3:static/${4:name}}.${5:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}
+		template: ${3:static}/${4:name}.html.twig
 endsnippet
 
-snippet sfrouteredirect "Symfony / Routing / Redirect to route" b
+snippet sfredirect "Symfony / Routing / Redirect to route" b
 ${1:route_name}:
-	path: ${2:/}
+	path: /${2}
+	controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
 	defaults:
-		_controller: FrameworkBundle:Redirect:redirect
-		rotue: ${3:redirect_route}
-		permanent: ${4:true}
+		route: ${3:redirect_route}
+		permanent: true
 endsnippet
 
-snippet sfrouteredirectu "Symfony / Routing / Redirect to url" b
+snippet sfredirect "Symfony / Routing / Redirect to url" b
 ${1:route_name}:
-	path: ${2:/}
+	path: /${2}
+	controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
 	defaults:
-		_controller: _controller: FrameworkBundle:Redirect:urlRedirect
 		path: ${3:redirect_url}
-		permanent: ${4:true}
-endsnippet
-
-snippet sfservice "Symfony / Service / Service definition" b
-${1:service_name}:
-	class: ${2}
-	arguments:
-		- ${3}
-endsnippet
-
-snippet sfformtype "Symfony / Service / Form type" b
-${1:app}.form.type.${2}:
-	class: ${3:AppBundle}\Form\Type\\${4}
-	${4:arguments: [ ${5} ]}
-	tags:
-		- { name: form.type, alias: $2 }
-endsnippet
-
-snippet sfeventlistener "Symfony / Service / Event listener" b
-${1:app}.listener.${2}:
-	class: ${3:AppBundle}\EventListener\\${4}Listener
-	${5:arguments: [ ${6} ]}
-	tags:
-		- { name: ${7:kernel}.event_listener, event: ${8:kernel.request}, method: ${9:handle} }
-endsnippet
-
-snippet sfeventsubscriber "Symfony / Service / Event subscriber" b
-${1:app}.subscriber.${2}:
-	class: ${3:AppBundle}\EventListener\\${4}Subscriber
-	${5:arguments: [ ${6} ]}
-	tags:
-		- { name: ${7:kernel}.event_subscriber }
-endsnippet
-
-snippet sftwigextension "Symfony / Service / Twig extension" b
-${1:app}.twig.${2}_extension:
-	public: false
-	class: ${2:AppBundle}\Twig\\${3}Extension
-	${4:arguments: [ ${5} ]}
-	tags:
-		- { name: twig.extension }
-endsnippet
-
-snippet sfrepository "Symfony / Service / Repository as a service" b
-${1:app}.repository.${2}:
-	class: Doctrine\ORM\EntityRepository
-	factory: [ @doctrine.orm.entity_manager, getRepository ]
-	arguments: [ ${3:AppBundle}\Entity\\${4} ]
+		permanent: true
 endsnippet
