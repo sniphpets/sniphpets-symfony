@@ -1,99 +1,54 @@
 priority -40
 
-snippet sfcontroller "Symfony / Controller / Controller class" b
+snippet sfcontroller "Symfony / Controller / Controller" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\\`!v sniphpets#namespace()`;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-
-class `!v sniphpets#basename()` extends Controller
-{
-	${0}
-}
-endsnippet
-
-snippet sfcontrollera "Symfony / Controller / Controller class (annotated)" b
-<?php
-
-namespace `!v sniphpets#namespace()`;
-
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/${1:`!v sniphpets#symfony#controller#resolve_route()`}")
+ * @Route("/`!v sniphpets#symfony#controller#resolve_route()`")
  */
-class `!v sniphpets#basename()` extends Controller
+class `!v sniphpets#basename()` extends AbstractController
 {
 	${0}
 }
 endsnippet
 
 snippet sfaction "Symfony / Controller / Action" b
-public function ${1:index}Action(${2:Request $request})
-{
-	${0}
-}
-endsnippet
-
-snippet sfactionr "Symfony / Controller / Action / Render" b
-public function ${1:index}Action(${2:Request $request})
-{
-	${0}
-
-	return \$this->render('${3:`!v sniphpets#symfony#controller#resolve_templates_path()`}${4:${1/[A-Z]/_\l$0/g}}.${5:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${6:, [${7}]});
-}
-endsnippet
-
-snippet sfactiona "Symfony / Controller / Action (annotated)" b
 /**
- * @Route("/${2:${1/[A-Z]/-\l$0/g}${3}}"${4:, name="${5:`!v sniphpets#symfony#controller#resolve_route_name_prefix()`${1/[A-Z]/_\l$0/g}}"})
- * @Method("${6:GET}")
+ * @Route("/${1/[A-Z]/-\l$0/g}", methods="GET", name="`!v sniphpets#symfony#controller#resolve_route_name_prefix()`${1/[A-Z]/_\l$0/g}")
  */
-public function ${1:index}Action(${7:Request $request})
+public function ${1:index}(Request \$request): Response
 {
 	${0}
 }
 endsnippet
 
-snippet sfactionar "Symfony / Controller / Action (annotated) / Render" b
-/**
- * @Route("/${2:${1/[A-Z]/-\l$0/g}${3}}"${4:, name="${5:`!v sniphpets#symfony#controller#resolve_route_name_prefix()`${1/[A-Z]/_\l$0/g}}"})
- * @Method("${6:GET}")
- */
-public function ${1:index}Action(${7:Request $request})
-{
-	${0}
-
-	return \$this->render('${8:`!v sniphpets#symfony#controller#resolve_templates_path()`}${9:${1/[A-Z]/_\l$0/g}}.${10:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${11:, [${12}]});
-}
+snippet sfrender "Symfony / Controller / Render" b
+return \$this->render('`!v sniphpets#camel_to_snake(sniphpets#basename('Controller'))`/${1:index}.html.twig'${2:, [${3}]});
 endsnippet
 
-snippet sfrender "Symfony / Controller / Render"
-return \$this->render('`!v sniphpets#symfony#controller#resolve_templates_path()`${1:index}.${2:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${3:, [${4}]});
+snippet sfjson "Symfony / Controller / JSON response" b
+return \$this->json(${1:[ ${2} ]});
 endsnippet
 
-snippet sfforward "Symfony / Controller / Forward"
-\$this->forward(
-	'${1:Bundle}:${2:Controller}:${3:action}',
-	[${4}]
-);
+snippet sfurl "Symfony / Controller / Generate URL" w
+\$this->generateUrl('${1:route}'${2:, [ ${3} ]})
 endsnippet
 
-snippet sfredirect "Symfony / Controller / Redirect"
-\$this->redirect(
-	\$this->generateUrl(
-		'${1:route}',
-		[${2}]
-	)${3:,
-	code}
-);
+snippet sfredirect "Symfony / Controller / Redirect to route" b
+return \$this->redirectToRoute('${1:route}'${2:, [ ${3} ]});
+endsnippet
+
+snippet sfflash "Symfony / Controller / Add flash message" b
+\$this->addFlash('${1:success}', '${2:message}');
 endsnippet
 
 snippet sfem "Symfony / Controller / Get Doctrine entity manager" b
-$${1:em} = $this->getDoctrine()->getManager();
+\$${1:entityManager} = \$this->getDoctrine()->getManager();
 endsnippet
