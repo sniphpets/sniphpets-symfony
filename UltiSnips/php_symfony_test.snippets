@@ -1,6 +1,6 @@
 priority -40
 
-snippet sfwebtestcase "Symfony2 / Tests / WebTestCase" b
+snippet sfwebtestcase "Symfony / Tests / WebTestCase" b
 <?php
 
 namespace `!v sniphpets#namespace()`;
@@ -13,7 +13,7 @@ class `!v sniphpets#basename()` extends WebTestCase
 }
 endsnippet
 
-snippet sftest "Symfony2 / Tests / WebTestCase method" b
+snippet sftest "Symfony / Tests / WebTestCase method" b
 public function test${1}()
 {
 	$client = static::createClient();
@@ -24,7 +24,7 @@ public function test${1}()
 }
 endsnippet
 
-snippet sfsmoketest "Symfony2 / Tests / Smoke test methods" b
+snippet sfsmoketest "Symfony / Tests / Smoke test methods" b
 /**
  * @dataProvider urlProvider
  */

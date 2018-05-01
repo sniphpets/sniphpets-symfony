@@ -1,6 +1,6 @@
 priority -40
 
-snippet sfcontroller "Symfony2 / Controller / Controller class" b
+snippet sfcontroller "Symfony / Controller / Controller class" b
 <?php
 
 namespace `!v sniphpets#namespace()`;
@@ -14,7 +14,7 @@ class `!v sniphpets#basename()` extends Controller
 }
 endsnippet
 
-snippet sfcontrollera "Symfony2 / Controller / Controller class (annotated)" b
+snippet sfcontrollera "Symfony / Controller / Controller class (annotated)" b
 <?php
 
 namespace `!v sniphpets#namespace()`;
@@ -33,14 +33,14 @@ class `!v sniphpets#basename()` extends Controller
 }
 endsnippet
 
-snippet sfaction "Symfony2 / Controller / Action" b
+snippet sfaction "Symfony / Controller / Action" b
 public function ${1:index}Action(${2:Request $request})
 {
 	${0}
 }
 endsnippet
 
-snippet sfactionr "Symfony2 / Controller / Action / Render" b
+snippet sfactionr "Symfony / Controller / Action / Render" b
 public function ${1:index}Action(${2:Request $request})
 {
 	${0}
@@ -49,7 +49,7 @@ public function ${1:index}Action(${2:Request $request})
 }
 endsnippet
 
-snippet sfactiona "Symfony2 / Controller / Action (annotated)" b
+snippet sfactiona "Symfony / Controller / Action (annotated)" b
 /**
  * @Route("/${2:${1/[A-Z]/-\l$0/g}${3}}"${4:, name="${5:`!v sniphpets#symfony#controller#resolve_route_name_prefix()`${1/[A-Z]/_\l$0/g}}"})
  * @Method("${6:GET}")
@@ -60,7 +60,7 @@ public function ${1:index}Action(${7:Request $request})
 }
 endsnippet
 
-snippet sfactionar "Symfony2 / Controller / Action (annotated) / Render" b
+snippet sfactionar "Symfony / Controller / Action (annotated) / Render" b
 /**
  * @Route("/${2:${1/[A-Z]/-\l$0/g}${3}}"${4:, name="${5:`!v sniphpets#symfony#controller#resolve_route_name_prefix()`${1/[A-Z]/_\l$0/g}}"})
  * @Method("${6:GET}")
@@ -73,18 +73,18 @@ public function ${1:index}Action(${7:Request $request})
 }
 endsnippet
 
-snippet sfrender "Symfony2 / Controller / Render"
+snippet sfrender "Symfony / Controller / Render"
 return \$this->render('`!v sniphpets#symfony#controller#resolve_templates_path()`${1:index}.${2:`!v sniphpets#settings('symfony_view_suffix', 'html.twig')`}'${3:, [${4}]});
 endsnippet
 
-snippet sfforward "Symfony2 / Controller / Forward"
+snippet sfforward "Symfony / Controller / Forward"
 \$this->forward(
 	'${1:Bundle}:${2:Controller}:${3:action}',
 	[${4}]
 );
 endsnippet
 
-snippet sfredirect "Symfony2 / Controller / Redirect"
+snippet sfredirect "Symfony / Controller / Redirect"
 \$this->redirect(
 	\$this->generateUrl(
 		'${1:route}',
@@ -94,6 +94,6 @@ snippet sfredirect "Symfony2 / Controller / Redirect"
 );
 endsnippet
 
-snippet sfem "Symfony2 / Controller / Get Doctrine entity manager" b
+snippet sfem "Symfony / Controller / Get Doctrine entity manager" b
 $${1:em} = $this->getDoctrine()->getManager();
 endsnippet
