@@ -8,10 +8,6 @@ snippet sfuseresponse "Symfony / Use / Response" b
 use Symfony\Component\HttpFoundation\\${1:Json}Response;
 endsnippet
 
-snippet sfusecontroller "Symfony / Use / Controller" b
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-endsnippet
-
 snippet sfusefile "Symfony / Use / UploadedFile" b
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 endsnippet
@@ -24,10 +20,6 @@ snippet sfuseassert "Symfony / Use / Constraints" b
 use Symfony\Component\Validator\Constraints as Assert;
 endsnippet
 
-snippet sfusecontaineraware "Symfony / Use / Container aware" b
-use Symfony\Component\DependencyInjection\ContainerAware${1:Interface};
-endsnippet
-
-snippet sfuse "Symfony / Use / Default" b
-use `!v sniphpets#symfony#resolve_bundle_namespace()`\\${1:Entity\\${2}};
+snippet sfuse "Symfony / Use / use App\" b
+use App\\${1};
 endsnippet
