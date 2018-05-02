@@ -12,22 +12,6 @@ snippet sftrans "Symfony / Twig / translate filter"
 {{ '${1}'|trans }}
 endsnippet
 
-snippet sfjavascripts "Symfony / Twig / Assetic: javascripts" b
-{% block javascripts %}
-	{% javascripts output='${1:js/app.js}' '${2:%kernel.root_dir%/Resources/assets/js/*.js}' %}
-		<script src="{{ asset_url }}"></script>
-	{% endjavascripts %}
-{% endblock %}
-endsnippet
-
-snippet sfstylesheets "Symfony / Twig / Assetic: stylesheets" b
-{% block stylesheets %}
-	{% stylesheets output='${1:css/app.css}' '${2:%kernel.root_dir%/Resources/assets/css/*.css}' %}
-		<link rel="stylesheet" href="{{ asset_url }}" />
-	{% endstylesheets %}
-{% endblock %}
-endsnippet
-
 snippet sfform "Symfony / Twig / Form rendering" b
 {{ form_start(${1:form}, { method: '${2:POST}', action: ${3:path('${4}'${5:, { ${6} }})} }) }}
 	{{ form_errors($1) }}
