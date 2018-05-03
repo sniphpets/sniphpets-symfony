@@ -7,15 +7,15 @@ def resolve_label(name):
 	return sniphpets.ucfirst(sniphpets.camel_to_snake(name, ' '))
 endglobal
 
-snippet sfformtype "Symfony / Form / Form type" b
+snippet sfform "Symfony / Form / Form type" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\Form;
 
+use App\Entity\\`!v sniphpets#basename('Type')`;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use ${1:`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity}\\${2:`!v sniphpets#basename('Type')`};
 
 class `!v sniphpets#basename()` extends AbstractType
 {
@@ -29,56 +29,8 @@ class `!v sniphpets#basename()` extends AbstractType
 	public function configureOptions(OptionsResolver \$resolver)
 	{
 		\$resolver->setDefaults([
-			'data_class' => $2::class,
+			'data_class' => `!v sniphpets#basename('Type')`::class,
 		]);
-	}
-}
-endsnippet
-
-snippet sfformtype2 "Symfony / Form / Form type (Symfony 2)" b
-<?php
-
-namespace `!v sniphpets#namespace()`;
-
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
-class `!v sniphpets#basename()` extends AbstractType
-{
-	public function buildForm(FormBuilderInterface \$builder, array \$options)
-	{
-		\$builder
-			->add(${0}
-		;
-	}
-
-	public function configureOptions(OptionsResolverInterface \$resolver)
-	{
-		\$resolver->setDefaults([
-			'data_class' => ${1:'`!v sniphpets#symfony#resolve_bundle_namespace()`\Entity\\`!v sniphpets#basename('Type')`'},
-		]);
-	}
-
-	public function getName()
-	{
-		return '${2:`!v sniphpets#camel_to_snake(sniphpets#symfony#resolve_bundle_name() . sniphpets#basename('Type'))`}';
-	}
-}
-endsnippet
-
-snippet sfformtypeextension "Symfony / Form / Form type extension" b
-<?php
-
-namespace `!v sniphpets#namespace()`;
-
-use Symfony\Component\Form\AbstractTypeExtension;
-
-class `!v sniphpets#basename()` extends AbstractTypeExtension
-{
-	public function getExtendedType()
-	{
-		return '${1:form}';
 	}
 }
 endsnippet
@@ -162,7 +114,7 @@ endsnippet
 snippet sfformdatatransformer "Symfony / Form / Data transformer" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
@@ -184,7 +136,7 @@ endsnippet
 snippet sfformdatamapper "Symfony / Form / Data mapper" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\Form\DataMapper;
 
 use Symfony\Component\Form\DataMapperInterface;
 
@@ -196,31 +148,6 @@ class `!v sniphpets#basename()` implements DataMapperInterface
 	}
 
 	public function mapFormsToData(\$forms, &\$data)
-	{
-	}
-}
-endsnippet
-
-snippet sfformextension "Symfony / Form / Extension" b
-<?php
-
-namespace `!v sniphpets#namespace()`;
-
-use Symfony\Component\Form\AbstractExtension;
-
-class `!v sniphpets#basename()` extends AbstractExtension
-{
-	protected function loadTypes()
-	{
-		return [${0}];
-	}
-
-	protected function loadTypeExtensions()
-	{
-		return [];
-	}
-
-	protected function loadTypeGuesser()
 	{
 	}
 }
