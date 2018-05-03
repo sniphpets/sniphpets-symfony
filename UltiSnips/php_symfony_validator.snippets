@@ -1,22 +1,22 @@
 priority -40
 
-snippet sfconstraint "Symfony / Validator / Constraint" b
+snippet sfconstraint "Symfony / Validator / Constraint class" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
 class `!v sniphpets#basename()` extends Constraint
 {
-	public \$message = '${1}';
+	public \$message = '${0}';
 }
 endsnippet
 
-snippet sfvalidator "Symfony / Validator Class" b
+snippet sfvalidator "Symfony / Validator / Validator class" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\Validator;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -25,7 +25,7 @@ class `!v sniphpets#basename()` extends ConstraintValidator
 {
 	public function validate(\$value, Constraint \$constraint)
 	{
-		${1}
+		${0}
 	}
 }
 endsnippet
