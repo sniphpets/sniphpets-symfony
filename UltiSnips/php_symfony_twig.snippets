@@ -1,11 +1,15 @@
 priority -40
 
-snippet sftwigextension "Symfony / Twig / Extension Class" b
+snippet sftwigextension "Symfony / Twig / Extension class" b
 <?php
 
-namespace `!v sniphpets#namespace()`;
+namespace App\Twig;
 
-class `!v sniphpets#basename()` extends \Twig_Extension
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
+
+class `!v sniphpets#basename()` extends AbstractExtension
 {
 	public function getFilters()
 	{
@@ -15,11 +19,6 @@ class `!v sniphpets#basename()` extends \Twig_Extension
 	public function getFunctions()
 	{
 		return [];
-	}
-
-	public function getName()
-	{
-		return '${1:`!v sniphpets#camel_to_snake(sniphpets#symfony#resolve_bundle_name() . sniphpets#basename('Extension'))`}';
 	}
 }
 endsnippet
