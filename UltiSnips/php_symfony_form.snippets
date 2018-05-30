@@ -35,42 +35,6 @@ class `!v sniphpets#basename()` extends AbstractType
 }
 endsnippet
 
-snippet sfformbuildform "Symfony / Form / buildForm method" b
-public function buildForm(FormBuilderInterface \$builder, array \$options)
-{
-	\$builder
-		->add(${0})
-	;
-}
-endsnippet
-
-snippet sfformconfigureoptions "Symfony / Form / configureOptions method" b
-public function configureOptions(OptionsResolver \$resolver)
-{
-	\$resolver->${1:setDefaults}([
-		${0}
-	]);
-}
-endsnippet
-
-snippet sfformbuildview "Symfony / Form / buildView method" b
-public function buildView(FormView \$view, FormInterface \$form, array \$options)
-{
-	${0}
-}
-endsnippet
-
-snippet sfformfinishview "Symfony / Form / finishView method" b
-public function finishView(FormView \$view, FormInterface \$form, array \$options)
-{
-	${0}
-}
-endsnippet
-
-snippet sfformuse "Symfony / Form / Use type" b
-use Symfony\Component\Form\Extension\Core\Type\\${1:Text}Type;
-endsnippet
-
 snippet sfformadd "Symfony / Form / Add field" b
 ->add('${1:name}', ${2:Text}Type::class, [
 	'label' => '${3:`!p snip.rv = resolve_label(t[1])`}',${0}
@@ -111,49 +75,11 @@ snippet sfformaddentity "Symfony / Form / Add entity field" b
 ])
 endsnippet
 
-snippet sfformdatatransformer "Symfony / Form / Data transformer" b
-<?php
-
-namespace App\Form\DataTransformer;
-
-use Symfony\Component\Form\DataTransformerInterface;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\Form\Exception\TransformationFailedException;
-
-class `!v sniphpets#basename()` implements DataTransformerInterface
-{
-	public function transform(\$value)
-	{
-		${0}
-	}
-
-	public function reverseTransform(\$value)
-	{
-	}
-}
+snippet sfformuse "Symfony / Form / Use type" b
+use Symfony\Component\Form\Extension\Core\Type\\${1:Text}Type;
 endsnippet
 
-snippet sfformdatamapper "Symfony / Form / Data mapper" b
-<?php
-
-namespace App\Form\DataMapper;
-
-use Symfony\Component\Form\DataMapperInterface;
-
-class `!v sniphpets#basename()` implements DataMapperInterface
-{
-	public function mapDataToForms(\$data, \$forms)
-	{
-		${0}
-	}
-
-	public function mapFormsToData(\$forms, &\$data)
-	{
-	}
-}
-endsnippet
-
-snippet sfformhandle "Symfony / Form / Handle" b
+snippet sfformhandle "Symfony / Form / Handle request" b
 \$${1:form}->handleRequest(\$${2:request});
 
 if (\$$1->isSubmitted() && \$$1->isValid()) {
