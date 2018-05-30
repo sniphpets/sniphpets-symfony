@@ -1,6 +1,6 @@
 priority -40
 
-snippet sfwebtestcase "Symfony / Tests / WebTestCase" b
+snippet sftestcase "Symfony / Tests / WebTestCase" b
 <?php
 
 namespace App\Tests\\`!v sniphpets#namespace()`;
@@ -24,22 +24,25 @@ public function test${1}()
 }
 endsnippet
 
-snippet sfsmoketest "Symfony / Tests / Smoke test methods" b
+snippet sftestsmoke "Symfony / Tests / Smoke test methods" b
 /**
  * @dataProvider urlProvider
  */
-public function testPageIsSuccessful($url)
+public function testPageIsSuccessful(string $url)
 {
 	$client = self::createClient();
 	$client->request('GET', $url);
 
-	$this->assertTrue($client->getResponse()->isSuccessful());
+	$response = $client->getResponse();
+
+	$this->assertTrue(
+		$response->isSuccessful(),
+		sprintf('Page "%s" doesn\'t work. Status: %d.', $url, $response->getStatusCode())
+	);
 }
 
 public function urlProvider()
 {
-	return [
-		['/${1}'],${0}
-	];
+	yield ['/${1}'];${0}
 }
 endsnippet
