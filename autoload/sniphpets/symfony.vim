@@ -5,11 +5,11 @@ endif
 let g:sniphpets_symfony_autoload = 1
 
 fun! sniphpets#symfony#resolve_bundle_namespace(...)
-    let fqn = a:0 > 0 ? a:1 : sniphpets#resolve_fqn()
+    let fqn = a:0 > 0 ? a:1 : sniphpets#fqn()
     return substitute(matchstr(fqn, '^.*Bundle\\'), '\\$', '', '')
 endf
 
 fun! sniphpets#symfony#resolve_bundle_name(...)
-    let fqn = a:0 > 0 ? a:1 : sniphpets#resolve_fqn()
+    let fqn = a:0 > 0 ? a:1 : sniphpets#fqn()
     return substitute(matchstr(fqn, '\v([^\\]+)Bundle\\'), 'Bundle\\$', '', '')
 endf

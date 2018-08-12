@@ -9,7 +9,7 @@ let g:sniphpets_symfony_controller_autoload = 1
 " XBundle\Controller\Admin\BlogController -> 'XBundle:Admin/Blog:'
 " AppBundle\Controller\BlogController -> 'admin/blog/' (see best practices)
 fun! sniphpets#symfony#controller#resolve_templates_path(...)
-    let fqn = a:0 > 1 ? a:1 : sniphpets#resolve_fqn()
+    let fqn = a:0 > 1 ? a:1 : sniphpets#fqn()
 
     let bundle = matchstr(fqn, '[^\\]\+Bundle')
 
@@ -29,7 +29,7 @@ endf
 " For example:
 " AppBundle\Controller\Admin\UserProfileController -> @Route("/admin/user-profile")
 fun! sniphpets#symfony#controller#resolve_route(...)
-    let fqn = a:0 > 1 ? a:1 : sniphpets#resolve_fqn()
+    let fqn = a:0 > 1 ? a:1 : sniphpets#fqn()
     let path = sniphpets#symfony#controller#get_controller_path(fqn)
     let route = substitute(sniphpets#camel_to_snake(path, '-'), '/-', '/', 'g')
 
@@ -40,7 +40,7 @@ endf
 " For example:
 " AppBundle\Admin\UserProfileController -> 'admin_user_profile_',
 fun! sniphpets#symfony#controller#resolve_route_name_prefix(...)
-    let fqn = a:0 > 1 ? a:1 : sniphpets#resolve_fqn()
+    let fqn = a:0 > 1 ? a:1 : sniphpets#fqn()
 
     let route_prefix = sniphpets#settings('symfony_route_prefix')
     let parts_delimiter = sniphpets#settings('symfony_route_parts_delimiter', '_')
