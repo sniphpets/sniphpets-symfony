@@ -3,7 +3,7 @@ priority -40
 snippet sfentity "Symfony / Doctrine / Entity" b
 <?php
 
-namespace App\Entity;
+namespace `!v sniphpets#namespace()`;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -30,7 +30,7 @@ endsnippet
 snippet sfrepository  "Symfony / Doctrine / Repository" b
 <?php
 
-namespace App\Repository;
+namespace `!v sniphpets#namespace()`;
 
 use App\Entity\\`!v sniphpets#basename('Repository')`;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
