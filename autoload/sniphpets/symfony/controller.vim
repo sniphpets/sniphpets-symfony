@@ -25,16 +25,21 @@ fun! sniphpets#symfony#controller#resolve_templates_path(...)
     return path
 endf
 
-" Resolve route for the current controller
+" Resolve base path for the current controller
 " For example:
-" AppBundle\Controller\Admin\UserProfileController -> @Route("/admin/user-profile")
-fun! sniphpets#symfony#controller#resolve_route(...)
+" App\Controller\Admin\UserProfileController -> @Route("/admin/user-profile")
+fun! sniphpets#symfony#controller#base_path(...)
     let fqn = a:0 > 1 ? a:1 : sniphpets#fqn()
     let path = sniphpets#symfony#controller#get_controller_path(fqn)
-    let route = substitute(sniphpets#camel_to_snake(path, '-'), '/-', '/', 'g')
+    let base_path = substitute(sniphpets#camel_to_snake(path, '-'), '/-', '/', 'g')
 
-    return route
-endf 
+    return base_path
+endf
+
+"@Deprecated use sniphpets#symfony#controller#base_path
+fun! sniphpets#symfony#controller#resolve_route(...)
+    return call('sniphpets#symfony#controller#base_path', a:000)
+endf
 
 " Resolve route name prefix for the current controller
 " For example:
