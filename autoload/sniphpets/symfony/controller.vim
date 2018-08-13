@@ -13,7 +13,7 @@ fun! sniphpets#symfony#controller#resolve_templates_path(...)
 
     let bundle = matchstr(fqn, '[^\\]\+Bundle')
 
-    let path = sniphpets#symfony#controller#get_controller_path(fqn)
+    let path = sniphpets#symfony#controller#full_name(fqn)
 
     if bundle == sniphpets#settings('symfony_app_bundle')
         let path = substitute(sniphpets#camel_to_snake(path), '/_', '/', 'g')
@@ -30,8 +30,9 @@ endf
 " App\Controller\Admin\UserProfileController -> @Route("/admin/user-profile")
 fun! sniphpets#symfony#controller#base_path(...)
     let fqn = a:0 > 1 ? a:1 : sniphpets#fqn()
-    let path = sniphpets#symfony#controller#get_controller_path(fqn)
-    let base_path = substitute(sniphpets#camel_to_snake(path, '-'), '/-', '/', 'g')
+    let path = sniphpets#symfony#controller#full_name(fqn)
+
+    let base_path = sniphpets#camel_to_snake(path, '-')
 
     return base_path
 endf
@@ -50,7 +51,7 @@ fun! sniphpets#symfony#controller#resolve_route_name_prefix(...)
     let route_prefix = sniphpets#settings('symfony_route_prefix')
     let parts_delimiter = sniphpets#settings('symfony_route_parts_delimiter', '_')
 
-    let path = sniphpets#symfony#controller#get_controller_path(fqn)
+    let path = sniphpets#symfony#controller#full_name(fqn)
     let parts = map(split(path, '/'), 'sniphpets#camel_to_snake(v:val)')
     let route = join(parts, parts_delimiter) . parts_delimiter
 
@@ -76,7 +77,7 @@ endf
 fun! sniphpets#symfony#controller#template()
     let fqn = sniphpets#fqn()
 
-    let controller_path = sniphpets#camel_to_snake(sniphpets#symfony#controller#full_name(fqn)
+    let controller_path = sniphpets#camel_to_snake(sniphpets#symfony#controller#full_name(fqn))
     let template = sniphpets#camel_to_snake(sniphpets#method())
     let extension = get(g:, 'sniphpets_symfony_template_extension', 'html.twig')
 
