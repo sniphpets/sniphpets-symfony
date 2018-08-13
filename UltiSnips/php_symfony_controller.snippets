@@ -30,7 +30,7 @@ public function ${1:index}(Request \$request): Response
 endsnippet
 
 snippet sfrender "Symfony / Controller / Render" b
-return \$this->render('`!v sniphpets#camel_to_snake(sniphpets#basename('Controller'))`/${1:index}.html.twig'${2:, [${3}]});
+return \$this->render('`!v sniphpets#symfony#controller#template()`'${2:, [${3}]});
 endsnippet
 
 snippet sfjson "Symfony / Controller / JSON response" b

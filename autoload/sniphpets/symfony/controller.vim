@@ -61,12 +61,24 @@ fun! sniphpets#symfony#controller#resolve_route_name_prefix(...)
     return route
 endf
 
+" Returns 'full' controller name
 " For example:
 " AppBundle\Controller\Admin\BlogController -> 'Admin/Blog'
-fun! sniphpets#symfony#controller#get_controller_path(fqn)
+fun! sniphpets#symfony#controller#full_name(fqn)
     let path = strpart(a:fqn, stridx(a:fqn, '\Controller\') + 12)
     let path = strpart(path, 0, strlen(path) - 10)
     let path = tr(path, '\', '/')
 
     return path
+endf
+
+" Returns template path for current (closest) action
+fun! sniphpets#symfony#controller#template()
+    let fqn = sniphpets#fqn()
+
+    let controller_path = sniphpets#camel_to_snake(sniphpets#symfony#controller#full_name(fqn)
+    let template = sniphpets#camel_to_snake(sniphpets#method())
+    let extension = get(g:, 'sniphpets_symfony_template_extension', 'html.twig')
+
+    return printf('%s/%s.%s', controller_path, template, extension)
 endf
