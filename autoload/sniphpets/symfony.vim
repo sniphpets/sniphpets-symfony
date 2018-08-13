@@ -9,7 +9,8 @@ fun! sniphpets#symfony#resolve_bundle_namespace(...)
     return substitute(matchstr(fqn, '^.*Bundle\\'), '\\$', '', '')
 endf
 
-fun! sniphpets#symfony#resolve_bundle_name(...)
+" Returns bundle name
+fun! sniphpets#symfony#bundle(...)
     let fqn = a:0 > 0 ? a:1 : sniphpets#fqn()
     return substitute(matchstr(fqn, '\v([^\\]+)Bundle\\'), 'Bundle\\$', '', '')
 endf
