@@ -7,5 +7,5 @@ task :dump do
 end
 
 task :test do
-  sh 'bundle exec vim-flavor test t/sniphpets'
+  sh 'bundle exec vim-flavor test t/autoload'
 end
