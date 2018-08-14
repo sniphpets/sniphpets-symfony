@@ -22,7 +22,7 @@ class `!v sniphpets#basename()`
 
 	public function getId(): ?int
 	{
-		return $this->id;
+		return \$this->id;
 	}
 }
 endsnippet
@@ -38,9 +38,9 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 
 class `!v sniphpets#basename()` extends ServiceEntityRepository
 {
-	public function __construct(ManagerRegistry $registry)
+	public function __construct(ManagerRegistry \$registry)
 	{
-		parent::__construct($registry, `!v sniphpets#basename('Repository')`::class);
+		parent::__construct(\$registry, `!v sniphpets#basename('Repository')`::class);
 	}
 }
 endsnippet
