@@ -4,27 +4,6 @@ endif
 
 let g:sniphpets_symfony_controller_autoload = 1
 
-" Resolve templates path for the current controller
-" For example:
-" XBundle\Controller\Admin\BlogController -> 'XBundle:Admin/Blog:'
-" AppBundle\Controller\BlogController -> 'admin/blog/' (see best practices)
-fun! sniphpets#symfony#controller#resolve_templates_path(...)
-    let fqn = a:0 > 1 ? a:1 : sniphpets#fqn()
-
-    let bundle = matchstr(fqn, '[^\\]\+Bundle')
-
-    let path = sniphpets#symfony#controller#full_name(fqn)
-
-    if bundle == sniphpets#settings('symfony_app_bundle')
-        let path = substitute(sniphpets#camel_to_snake(path), '/_', '/', 'g')
-        let path = path . '/'
-    else
-        let path = printf('%s:%s:', bundle, path)
-    endif
-
-    return path
-endf
-
 " Resolve base path for the current controller
 " For example:
 " App\Controller\Admin\UserProfileController -> @Route("/admin/user-profile")
@@ -48,15 +27,14 @@ endf
 fun! sniphpets#symfony#controller#resolve_route_name_prefix(...)
     let fqn = a:0 > 1 ? a:1 : sniphpets#fqn()
 
-    let route_prefix = sniphpets#settings('symfony_route_prefix')
-    let parts_delimiter = sniphpets#settings('symfony_route_parts_delimiter', '_')
+    let route_prefix = get(g:, 'sniphpets_symfony_route_prefix')
 
     let path = sniphpets#symfony#controller#full_name(fqn)
     let parts = map(split(path, '/'), 'sniphpets#camel_to_snake(v:val)')
-    let route = join(parts, parts_delimiter) . parts_delimiter
+    let route = join(parts, '_') . '_'
 
-    if route_prefix != ''
-        let route = route_prefix . parts_delimiter . route
+    if !empty(route_prefix)
+        let route = route_prefix . '_' . route
     endif
 
     return route

@@ -4,7 +4,7 @@ endif
 
 let g:sniphpets_symfony_autoload = 1
 
-fun! sniphpets#symfony#resolve_bundle_namespace(...)
+fun! sniphpets#symfony#bundle_namespace(...)
     let fqn = a:0 > 0 ? a:1 : sniphpets#fqn()
     return substitute(matchstr(fqn, '^.*Bundle\\'), '\\$', '', '')
 endf
