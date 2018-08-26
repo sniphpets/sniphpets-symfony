@@ -44,3 +44,21 @@ class `!v sniphpets#basename()` extends ServiceEntityRepository
 	}
 }
 endsnippet
+
+snippet sffixture "Symfon / Doctine / Fixture" b
+<?php
+
+namespace `!v sniphpets#namespace()`;
+
+use App\Entity\\`!v sniphpets#basename('Fixtures')`;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+
+class `!v sniphpets#basename()` extends Fixture
+{
+	public function load(ObjectManager $manager)
+	{
+		${0}
+	}
+}
+endsnippet
