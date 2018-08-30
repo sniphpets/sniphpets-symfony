@@ -1,5 +1,13 @@
 priority -40
 
+snippet sftemplate "Symfony / Twig / Template"
+{% extends '${1:base}.html.twig' %}
+
+{% block ${2:body} %}
+${VISUAL}${0}
+{% endblock %}
+endsnippet
+
 snippet sfasset "Symfony / Twig / asset"
 {{ asset('${1}') }}
 endsnippet
