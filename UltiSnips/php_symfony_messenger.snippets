@@ -1,0 +1,17 @@
+priority -40
+
+snippet sfhandler "Symfony / Messenger / Handler class" b
+<?php
+
+namespace `!v sniphpets#namespace()`;
+
+use App\Message\\`!v sniphpets#basename('Handler')`;
+
+class `!v sniphpets#basename()`
+{
+	public function __invoke(`!v sniphpets#basename('Handler')` \$message)
+	{
+		${VISUAL}${0}
+	}
+}
+endsnippet
