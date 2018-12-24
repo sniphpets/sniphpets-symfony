@@ -1,6 +1,6 @@
 priority -40
 
-snippet sftemplate "Symfony / Twig / Template"
+snippet sftemplate "Symfony / Twig / Template" b
 {% extends '${1:base}.html.twig' %}
 
 {% block ${2:body} %}
@@ -8,19 +8,23 @@ ${VISUAL}${0}
 {% endblock %}
 endsnippet
 
-snippet sfasset "Symfony / Twig / asset"
+snippet sfasset "Symfony / Twig / asset()" i
 {{ asset('${1}') }}
 endsnippet
 
-snippet sfpath "Symfony / Twig / path(route)"
+snippet sfimagine "Symfony / Twig / imagine_filter()" i
+{{ asset('${1}')|imagine_filter('${2}') }}
+endsnippet
+
+snippet sfpath "Symfony / Twig / path()" i
 {{ path('${1}'${2: ,{ ${3} }}) }}
 endsnippet
 
-snippet sftrans "Symfony / Twig / translate filter"
+snippet sftrans "Symfony / Twig / trans()" i
 {{ '${1}'|trans }}
 endsnippet
 
-snippet sfform "Symfony / Twig / Form rendering" b
+snippet sfform "Symfony / Twig / Form" b
 {{ form_start(${1:form}, { method: '${2:POST}', action: ${3:path('${4}'${5:, { ${6} }})} }) }}
 	{{ form_errors($1) }}
 	{{ form_widget($1) }}
