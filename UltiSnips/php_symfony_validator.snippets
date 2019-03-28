@@ -23,11 +23,20 @@ namespace `!v sniphpets#namespace()`;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 class `!v sniphpets#basename()` extends ConstraintValidator
 {
 	public function validate(\$value, Constraint \$constraint)
 	{
+		if (!\$constraint instanceof `!v sniphpets#basename('Validator')`) {
+			throw new UnexpectedTypeException(\$constraint, `!v sniphpets#basename('Validator')`::class);
+		}
+
+		if (null === \$value) {
+			return;
+		}
+
 		${VISUAL}${0}
 	}
 }
