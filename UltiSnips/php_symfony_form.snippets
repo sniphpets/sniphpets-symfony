@@ -79,6 +79,10 @@ snippet sfformuse "Symfony / Form / Use type" b
 use Symfony\Component\Form\Extension\Core\Type\\${1:Text}Type;
 endsnippet
 
+snippet sfformcreate "Symfony / Form / Create in controller" b
+\$${1:form} = \$this->createForm(${2:`!v sniphpets#basename('Controller')`}Type::class${3:, \$${4:${2/.*/\l$0/}}});
+endsnippet
+
 snippet sfformhandle "Symfony / Form / Handle request" b
 \$${1:form}->handleRequest(\$${2:request});
 
