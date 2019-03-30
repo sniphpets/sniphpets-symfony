@@ -12,6 +12,22 @@ snippet sfasset "Symfony / Twig / asset()" i
 {{ asset('${1}') }}
 endsnippet
 
+snippet sfjs "Symfony / Twig / Add JS" b
+{% block javascripts %}
+	{{ parent() }}
+
+	{{ asset('build/${1}.js') }}${0}
+{% endblock %}
+endsnippet
+
+snippet sfcss "Symfony / Twig / Add CSS" b
+{% block stylesheets %}
+	{{ parent() }}
+
+	{{ asset('build/${1}.css') }}${0}
+{% endblock %}
+endsnippet
+
 snippet sfimagine "Symfony / Twig / imagine_filter()" i
 {{ asset('${1}')|imagine_filter('${2}') }}
 endsnippet
