@@ -33,7 +33,7 @@ class `!v sniphpets#basename()` extends ConstraintValidator
 			throw new UnexpectedTypeException(\$constraint, `!v sniphpets#basename('Validator')`::class);
 		}
 
-		if (null === \$value) {
+		if (null === \$value || '' === \$value) {
 			return;
 		}
 
