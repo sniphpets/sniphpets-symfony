@@ -16,7 +16,7 @@ snippet sfjs "Symfony / Twig / Add JS" b
 {% block javascripts %}
 	{{ parent() }}
 
-	<script src="{{ asset('build/${1}.js') }}"></script>${0}
+	{{ encore_entry_script_tags('${1:`!v sniphpets#basename('.html')`}') }}
 {% endblock %}
 endsnippet
 
@@ -24,7 +24,7 @@ snippet sfcss "Symfony / Twig / Add CSS" b
 {% block stylesheets %}
 	{{ parent() }}
 
-	<link href="{{ asset('build/${1}.css') }}" rel="stylesheet" type="text/css">${0}
+	{{ encore_entry_link_tags('${1:`!v sniphpets#basename('.html')`}') }}
 {% endblock %}
 endsnippet
 
