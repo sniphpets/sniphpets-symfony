@@ -16,7 +16,7 @@ snippet sfjs "Symfony / Twig / Add JS" b
 {% block javascripts %}
 	{{ parent() }}
 
-	{{ encore_entry_script_tags('js/${1:`!v sniphpets#basename('.html')`}') }}
+	{{ encore_entry_script_tags('${1:`!v expand('%:t:r:r')`}') }}
 {% endblock %}
 endsnippet
 
@@ -24,7 +24,7 @@ snippet sfcss "Symfony / Twig / Add CSS" b
 {% block stylesheets %}
 	{{ parent() }}
 
-	{{ encore_entry_link_tags('css/${1:`!v sniphpets#basename('.html')`}') }}
+	{{ encore_entry_link_tags('${1:`!v expand('%:t:r:r')`}') }}
 {% endblock %}
 endsnippet
 
