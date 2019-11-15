@@ -47,3 +47,7 @@ snippet sfform "Symfony / Twig / Form" b
 	<button type="submit">${7:Submit}</button>
 {{ form_end($1) }}
 endsnippet
+
+snippet sfembed "Symfony / Twig / Embed controller" i
+{{ render(controller('App\\Controller\\${1}Controller::${2}'${3:, { ${4} }})) }}
+endsnippet
