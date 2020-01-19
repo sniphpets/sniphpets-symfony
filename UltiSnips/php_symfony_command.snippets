@@ -11,16 +11,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class `!v sniphpets#basename()` extends Command
 {
-	protected function configure()
+	protected function configure(): void
 	{
 		\$this
 			->setName('app:`!v sniphpets#camel_to_snake(sniphpets#basename('Command'), '-')`')
 		;
 	}
 
-	protected function execute(InputInterface \$input, OutputInterface \$output)
+	protected function execute(InputInterface \$input, OutputInterface \$output): int
 	{
 		${VISUAL}${0}
+
+		return 0;
 	}
 }
 endsnippet
