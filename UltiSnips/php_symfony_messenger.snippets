@@ -6,8 +6,9 @@ snippet sfhandler "Symfony / Messenger / Handler class" b
 namespace `!v sniphpets#namespace()`;
 
 use App\Message\\`!v sniphpets#basename('Handler')`;
+use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-class `!v sniphpets#basename()`
+class `!v sniphpets#basename()` implements MessageHandlerInterface
 {
 	public function __invoke(`!v sniphpets#basename('Handler')` \$message): void
 	{
