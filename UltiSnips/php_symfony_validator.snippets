@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 class `!v sniphpets#basename()` extends ConstraintValidator
 {
-	public function validate(\$value, Constraint \$constraint)
+	public function validate(\$value, Constraint \$constraint): void
 	{
 		if (!\$constraint instanceof `!v sniphpets#basename('Validator')`) {
 			throw new UnexpectedTypeException(\$constraint, `!v sniphpets#basename('Validator')`::class);

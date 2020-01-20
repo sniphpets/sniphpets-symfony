@@ -11,14 +11,14 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 class `!v sniphpets#basename()` implements EventSubscriberInterface
 {
-	public static function getSubscribedEvents()
+	public static function getSubscribedEvents(): array
 	{
 		return [
 			Events::${1:event} => '${2:handler}',
 		];
 	}
 
-	public function $2(GenericEvent $event)
+	public function $2(GenericEvent $event): void
 	{
 		${VISUAL}${0}
 	}
