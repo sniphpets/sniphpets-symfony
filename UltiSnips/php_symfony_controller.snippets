@@ -10,9 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/`!v sniphpets#symfony#controller#base_path()`")
- */
+#[Route("/`!v sniphpets#symfony#controller#base_path()`")]
 class `!v sniphpets#basename()` extends AbstractController
 {
 	${VISUAL}${0}
@@ -20,9 +18,7 @@ class `!v sniphpets#basename()` extends AbstractController
 endsnippet
 
 snippet sfaction "Symfony / Controller / Action" b
-/**
- * @Route("/${1/[A-Z]/-\l$0/g}", methods="GET", name="`!v sniphpets#symfony#controller#resolve_route_name_prefix()`${1/[A-Z]/_\l$0/g}")
- */
+#[Route('/${1/[A-Z]/-\l$0/g}', methods: 'GET', name: '`!v sniphpets#symfony#controller#resolve_route_name_prefix()`${1/[A-Z]/_\l$0/g}')]
 public function ${1:index}(Request \$request): Response
 {
 	${VISUAL}${0}
