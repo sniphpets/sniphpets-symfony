@@ -45,14 +45,14 @@ class `!v sniphpets#basename()` extends ServiceEntityRepository
 }
 endsnippet
 
-snippet sffixture "Symfon / Doctine / Fixture" b
+snippet sffixture "Symfony / Doctine / Fixture" b
 <?php`!v sniphpets#header()`
 
 namespace `!v sniphpets#namespace()`;
 
 use App\Entity\\`!v sniphpets#basename('Fixtures')`;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class `!v sniphpets#basename()` extends Fixture
 {
