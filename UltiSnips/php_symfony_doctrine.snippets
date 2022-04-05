@@ -5,20 +5,17 @@ snippet sfentity "Symfony / Doctrine / Entity" b
 
 namespace `!v sniphpets#namespace()`;
 
+use App\Repository\\`!v sniphpets#basename()`Repository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\\`!v sniphpets#basename()`Repository")
- */
+#[ORM\Entity(repositoryClass: `!v sniphpets#basename()`Repository::class)]
 class `!v sniphpets#basename()`
 {
-	/**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-	private \$id;
+	#[ORM\Id]
+	#[ORM\GeneratedValue(strategy: 'AUTO')]
+	#[ORM\Column(type: 'integer')]
+	private ?int \$id;${0}
 
 	public function getId(): ?int
 	{
