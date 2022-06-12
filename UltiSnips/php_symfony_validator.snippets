@@ -4,7 +4,7 @@ snippet sfassert "Symfony / Validator / #[Assert]" b
 #[Assert\\${1:NotBlank}]
 endsnippet
 
-snippet sfconstraint "Symfony / Validator / Constraint class" b
+snippet sfconstraint "Symfony / Validator / Regular constraint class" b
 <?php`!v sniphpets#header()`
 
 namespace `!v sniphpets#namespace()`;
@@ -15,6 +15,26 @@ use Symfony\Component\Validator\Constraint;
 class `!v sniphpets#basename()` extends Constraint
 {
 	public \$message = '${0}';
+}
+endsnippet
+
+snippet sfconstraint "Symfony / Validator / Compound constraint class" b
+<?php`!v sniphpets#header()`
+
+namespace `!v sniphpets#namespace()`;
+
+use Symfony\Component\Validator\Constraints\Compound;
+use Symfony\Component\Validator\Constraints as Assert;
+
+#[\Attribute]
+class `!v sniphpets#basename()` extends Compound
+{
+	protected function getConstraints(array $options): array
+	{
+		return [
+			${0}
+		];
+	}
 }
 endsnippet
 
