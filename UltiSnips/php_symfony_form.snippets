@@ -75,6 +75,13 @@ snippet sfformaddentity "Symfony / Form / Add entity field" b
 ])
 endsnippet
 
+snippet sfformadddate "Symfony / Form / Add date field" b
+->add('${1:name}', DateType::class, [
+	'label' => '${2:`!p snip.rv = resolve_label(t[1])`}',
+	'widget' => 'single_text',
+])
+endsnippet
+
 snippet sfformuse "Symfony / Form / Use type" b
 use Symfony\Component\Form\Extension\Core\Type\\${1:Text}Type;
 endsnippet
