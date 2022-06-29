@@ -42,7 +42,6 @@ endsnippet
 
 snippet sfform "Symfony / Twig / Form" b
 {{ form_start(${1:form}, { method: '${2:POST}', action: ${3:path('${4}'${5:, { ${6} }})} }) }}
-	{{ form_errors($1) }}
 	{{ form_widget($1) }}
 	<button type="submit">${7:Submit}</button>
 {{ form_end($1) }}
