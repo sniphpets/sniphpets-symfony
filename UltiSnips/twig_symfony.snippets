@@ -41,9 +41,12 @@ snippet sftrans "Symfony / Twig / trans()" i
 endsnippet
 
 snippet sfform "Symfony / Twig / Form" b
-{{ form_start(${1:form}, { method: '${2:POST}', action: ${3:path('${4}'${5:, { ${6} }})} }) }}
+{{ form_start(${1:form}) }}
 	{{ form_widget($1) }}
-	<button type="submit">${7:Submit}</button>
+
+	<div>
+		<button type="submit">${2:Submit}</button>
+	</div>
 {{ form_end($1) }}
 endsnippet
 
